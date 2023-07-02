@@ -65,7 +65,7 @@ const CheckboxContainer = () => {
                   { day, checked }: { day: string; checked: boolean },
                   index: number
                 ) => (
-                  <ThemeProvider theme={theme}>
+                  <ThemeProvider theme={theme} key={day}>
                     <CheckboxItemWrapper
                       className={daysLookup[TODAY] === day ? "today" : ""}
                     >

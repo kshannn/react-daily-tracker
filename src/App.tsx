@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import "./App.css";
 import { HabitContext } from "./context/HabitContext";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Days from "./components/Days";
 import HabitsContainer from "./components/HabitsContainer";
 import CheckboxContainer from "./components/CheckboxContainer";
@@ -51,9 +51,15 @@ function App() {
       setHabitList(JSON.parse(stored));
     }
   }, []);
+
+  const habitContextValue = useMemo(
+    () => ({ habitList, setHabitList }),
+    [habitList, setHabitList]
+  );
+
   return (
     <Container>
-      <HabitContext.Provider value={{ habitList, setHabitList }}>
+      <HabitContext.Provider value={habitContextValue}>
         <GridContainer>
           <ProgressTracker />
           <ProgressContainer />
