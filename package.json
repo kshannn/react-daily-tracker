@@ -26,8 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll=false --coverage --testResultsProcessor jest-sonar-reporter",
+    "eject": "react-scripts eject",
+    "sonar": "node sonarqube-scanner.js"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.194",
+    "jest-sonar-reporter": "^2.0.0",
     "sonarqube-scanner": "^3.0.1"
   }
 }
